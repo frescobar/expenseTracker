@@ -1,0 +1,44 @@
+<div class="form-container">
+
+  <nz-card *ngIf="!(loading$|async)">
+    <h1 nz-typography>Signup now!</h1>
+    <form nz-form [formGroup]="registerForm" class="register-form" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input a valid email!">
+          <label>Email</label>
+          <nz-input-group nzPrefixIcon="user">
+            <input type="email" nz-input formControlName="email" placeholder="example@email.com" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Password must be at least 6 characters">
+          <label>Password</label>
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="Your password" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Passwords must match">
+          <label>Confirm Password</label>
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="confirmPassword" placeholder="Your password" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <div nz-row class="register-form-margin">
+        <div nz-col [nzSpan]="12">
+        </div>
+        <div nz-col [nzSpan]="12">
+          <a routerLink="/login" class="register-form-forgot">Have an account? Login</a>
+        </div>
+      </div>
+      <button [disabled]="registerForm.invalid" nz-button class="register-form-button register-form-margin"
+        [nzType]="'primary'">Register</button>
+    </form>
+    <ng-container *ngIf="loading$|async">
+      <nz-spin nzSimple></nz-spin>
+    </ng-container>
+  </nz-card>
+</div>

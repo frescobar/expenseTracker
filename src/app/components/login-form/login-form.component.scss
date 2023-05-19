@@ -1,0 +1,23 @@
+.form-container{
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+
+.login-form {
+  width: 400px;
+  padding:40px 10px;
+}
+
+.login-form-margin {
+  margin-bottom: 16px;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}

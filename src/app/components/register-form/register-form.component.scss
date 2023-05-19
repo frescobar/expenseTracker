@@ -1,0 +1,23 @@
+.form-container{
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+
+.register-form {
+  width: 400px;
+  padding:40px 10px;
+}
+
+.register-form-margin {
+  margin-bottom: 16px;
+}
+
+.register-form-forgot {
+  float: right;
+}
+
+.register-form-button {
+  width: 100%;
+}
