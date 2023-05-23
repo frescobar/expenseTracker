@@ -64,4 +64,8 @@ export class AuthService {
         console.log(error);
       });
   }
+
+  get currentUser() {
+    return localStorage.getItem('userId');
+  }
 }
