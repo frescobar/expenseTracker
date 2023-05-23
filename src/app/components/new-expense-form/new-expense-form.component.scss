@@ -1,0 +1,27 @@
+nz-form-item {
+  margin-bottom: 16px;
+}
+
+nz-form-label {
+  font-weight: bold;
+}
+nz-input-number {
+  width: 100%;
+}
+nz-date-picker {
+  width: 100%;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Set form field width to 100% */
+nz-form-control {
+  width: 100%;
+}
+
+/* Override nz-input width inside nz-form-control */
+nz-form-control input {
+  width: 100%;
+}

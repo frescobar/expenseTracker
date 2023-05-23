@@ -1,0 +1,50 @@
+<form [formGroup]="expensesForm">
+  <div nz-row nzGutter="16">
+    <div nz-col nzSpan="24">
+      <nz-form-item>
+        <nz-form-label>Name</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="name" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="24">
+      <nz-form-item>
+        <nz-form-label>Amount</nz-form-label>
+        <nz-form-control>
+          <nz-input-number formControlName="amount" [nzMin]="0.1" [nzFormatter]="formatCurrency"
+            [nzParser]="parseCurrency" [nzPrecision]="2"></nz-input-number>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>Type</nz-form-label>
+        <nz-form-control>
+          <nz-select formControlName="type">
+            <nz-option *ngFor="let type of expensesTypes" [nzValue]="type.label" [nzLabel]="type.label"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>Date</nz-form-label>
+        <nz-form-control>
+          <nz-date-picker formControlName="date" [nzDisabledDate]="disabledDate"></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+
+    </div>
+
+    <div nz-col nzSpan="24">
+      <nz-form-item>
+        <nz-form-label>Description</nz-form-label>
+        <nz-form-control>
+          <textarea nz-input formControlName="description" rows="4"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="24" class="text-right">
+      <button nzSpace="12" nz-button nzType="primary" (click)="submitForm()" [disabled]="this.expensesForm.invalid"
+        [nzLoading]="isConfirmLoading">Submit</button>
+      <button nz-button nzType="default" (click)="closeModal()">Cancel</button>
+    </div>
+  </div>
+</form>
