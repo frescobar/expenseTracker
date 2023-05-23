@@ -1,0 +1,47 @@
+.expense-detail-container{
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin: 20px;
+  padding-left: 20px;
+  width:auto;
+  overflow: hidden;
+  background-color: #F0F2F5;
+}
+.amount-container{
+  display: flex;
+  align-items: center;
+  gap:5px;
+}
+.description-container{
+  display: flex;
+  gap:5px;
+}
+.name-container{
+  display: flex;
+  align-items: center;
+  gap:5px;
+  text-align: center;
+}
+.type-container{
+  display: flex;
+  align-items: center;
+  gap:5px;
+}
+
+.comment-container{
+  width:auto;
+  padding:5px 10px ;
+  overflow-x: auto;
+  margin-right: 10px;
+  text-align: center;
+}
+span{
+  margin-top: 8px;
+}
+.delete-icon{
+  float: right;
+  cursor: pointer;
+  margin: 20px;
+}
+
+
