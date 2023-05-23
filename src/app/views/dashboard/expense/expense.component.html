@@ -1,0 +1,26 @@
+<div class="expense-button-container">
+  <button *ngIf="!(showCharts$|async)" class="new-expense-btn" nzShape="round" nz-button nzType="primary"
+    (click)="openModal()"><span nz-icon nzType="plus"></span></button>
+  <button *ngIf="!(showCharts$|async)" class="new-expense-btn" nzShape="round" nz-button nzType="primary"
+    (click)="showCharts()"><span nz-icon nzType="pie-chart" nzTheme="fill"></span></button>
+  <button *ngIf="(showCharts$|async)" class="new-expense-btn" nzShape="round" nz-button nzType="primary"
+    (click)="showDashboard()"><span nz-icon nzType="dashboard" nzTheme="fill"></span></button>
+</div>
+
+<app-modal *ngIf="isVisible$|async">
+  <div modal-header>
+    <h1>New Expense</h1>
+  </div>
+  <div modal-body>
+    <app-new-expense-form></app-new-expense-form>
+  </div>
+</app-modal>
+<div class="expenses-card-container" *ngIf="!(showCharts$|async)">
+  <app-expense-details *ngFor="let expense of expenses" [expenseDetails]="expense"></app-expense-details>
+</div>
+<div class="chart-container" *ngIf="showCharts$ | async">
+  <canvas baseChart [type]="'pie'" [datasets]="pieChartDatasets" [labels]="pieChartLabels" [options]="pieChartOptions"
+    [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+  </canvas>
+
+</div>

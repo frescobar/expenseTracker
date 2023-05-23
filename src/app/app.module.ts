@@ -15,12 +15,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { NotificationComponent } from './shared/notification/notification.component';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent, NotificationComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
