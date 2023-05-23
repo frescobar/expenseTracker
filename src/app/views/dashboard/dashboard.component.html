@@ -1,1 +1,34 @@
-<p>dashboard works!</p>
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isToggle" [nzTrigger]="null">
+    <app-sidemenu></app-sidemenu>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <nz-layout>
+
+        <div class="header-container">
+          <span class="trigger" nz-icon [nzType]="isToggle ? 'menu-unfold' : 'menu-fold'"
+            (click)="setIsToggle()"></span>
+          <div class="dashboard-header">
+            <app-dashboard-header></app-dashboard-header>
+          </div>
+          <div class="logout">
+            <button (click)="logout()" nz-button nzType="primary" nzGhost>Logout</button>
+          </div>
+
+        </div>
+
+      </nz-layout>
+    </nz-header>
+    <nz-layout>
+      <nz-content>
+        <div class="dashboard-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+    <nz-layout>
+      <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+    </nz-layout>
+  </nz-layout>
+</nz-layout>
