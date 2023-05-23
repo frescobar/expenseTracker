@@ -1,0 +1,33 @@
+.expenses-card-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 5px;
+  margin: 20px;
+}
+.expense-button-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px;
+  float: right;
+}
+.chart-container{
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+canvas{
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 767px) {
+  .chart-container {
+    max-width: 100%;
+  }
+}
+
