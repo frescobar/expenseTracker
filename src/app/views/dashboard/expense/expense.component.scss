@@ -2,20 +2,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 5px;
-  margin: 20px;
 }
-.expense-button-container{
+
+.chart-container{
+  max-width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin: 20px;
-  float: right;
-}
-.chart-container{
-  max-width: 50%;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -24,10 +16,9 @@ canvas{
   max-height: 100%;
   margin: 0 auto;
 }
-
-@media screen and (max-width: 767px) {
-  .chart-container {
-    max-width: 100%;
-  }
+h1{
+  text-align: center;
+  margin:20px;
+  color:#40A9FF
 }
 

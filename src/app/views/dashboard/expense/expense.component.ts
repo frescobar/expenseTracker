@@ -64,25 +64,15 @@ export class ExpenseComponent {
     }
   }
 
-  openModal(): void {
-    this.sharedService.setIsVisible(true);
-  }
-
   async getExpenses(userId: string): Promise<void> {
     try {
       await this.expensesService.getExpenses(userId);
     } catch (error) {}
   }
 
-  showCharts(): void {
-    this.sharedService.setShowCharts(true);
-  }
-  showDashboard(): void {
-    this.sharedService.setShowCharts(false);
-  }
-
   ngOnDestroy(): void {
     this.unSubscribe$.next(true);
     this.unSubscribe$.complete();
+    this.sharedService.setIsVisible(false);
   }
 }
