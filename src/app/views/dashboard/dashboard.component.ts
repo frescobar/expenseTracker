@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { User, onAuthStateChanged } from '@angular/fire/auth';
 import { Auth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -19,6 +18,7 @@ export class DashboardComponent implements OnInit {
   ) {}
   currentUser: User | null = null;
   isToggle = false;
+  showCharts$ = this.sharedService.showCharts$;
   unSubscribe$ = new Subject();
 
   ngOnInit(): void {
@@ -39,6 +39,16 @@ export class DashboardComponent implements OnInit {
   setIsToggle(): void {
     const isToggle = !this.isToggle;
     this.sharedService.setIsToggle(isToggle);
+  }
+  openModal(): void {
+    this.sharedService.setIsVisible(true);
+  }
+  showCharts(): void {
+    this.sharedService.setShowCharts(true);
+  }
+
+  showDashboard(): void {
+    this.sharedService.setShowCharts(false);
   }
   ngOnDestroy(): void {
     this.unSubscribe$.next(true);

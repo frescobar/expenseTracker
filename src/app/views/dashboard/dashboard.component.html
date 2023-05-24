@@ -1,5 +1,5 @@
 <nz-layout>
-  <nz-sider nzCollapsible [(nzCollapsed)]="isToggle" [nzTrigger]="null">
+  <nz-sider [nzCollapsedWidth]="0" nzCollapsible [(nzCollapsed)]="isToggle" [nzTrigger]="null">
     <app-sidemenu></app-sidemenu>
   </nz-sider>
   <nz-layout>
@@ -23,12 +23,20 @@
     <nz-layout>
       <nz-content>
         <div class="dashboard-content">
+          <div class="expense-button-container">
+            <button *ngIf="!(showCharts$|async)" class="new-expense-btn" nzShape="round" nz-button nzType="primary"
+              (click)="openModal()"><span nz-icon nzType="plus"></span></button>
+            <button *ngIf="!(showCharts$|async)" class="new-expense-btn" nzShape="round" nz-button nzType="primary"
+              (click)="showCharts()"><span nz-icon nzType="pie-chart" nzTheme="fill"></span></button>
+            <button *ngIf="(showCharts$|async)" class="new-expense-btn" nzShape="round" nz-button nzType="primary"
+              (click)="showDashboard()"><span nz-icon nzType="dashboard" nzTheme="fill"></span></button>
+          </div>
           <router-outlet></router-outlet>
         </div>
       </nz-content>
     </nz-layout>
     <nz-layout>
-      <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+      <nz-footer>Expenses Tracker By Freddys Escobar </nz-footer>
     </nz-layout>
   </nz-layout>
 </nz-layout>

@@ -11,6 +11,7 @@ import { ExpenseComponent } from './expense/expense.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NgChartsModule } from 'ng2-charts';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
 @NgModule({
   declarations: [DashboardComponent, ExpenseComponent],
   imports: [
@@ -24,6 +25,7 @@ import { NgChartsModule } from 'ng2-charts';
     NzTableModule,
     NzDividerModule,
     NgChartsModule,
+    NzTypographyModule,
   ],
   exports: [DashboardComponent, ExpenseComponent],
 })

@@ -9,6 +9,8 @@
 .dashboard-content {
   min-height: 100vh;
   background-color: #fff;
+  display:flex;
+  flex-direction: column;
   }
 
 
@@ -39,3 +41,26 @@ nz-header {
 nz-footer {
   text-align: center;
 }
+.expense-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px;
+  margin-left: auto;
+}
+
+@media (max-width: 767px) {
+  .expense-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+}
+
+
