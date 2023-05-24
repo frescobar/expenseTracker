@@ -10,7 +10,7 @@
   <app-expense-details *ngFor="let expense of expenses" [expenseDetails]="expense"></app-expense-details>
 </div>
 <div class="chart-container" *ngIf="showCharts$ | async">
-  <h1 nz-typography>Expenses Pie Chart</h1>
+  <h1 nz-typography nzType="success">Expenses Pie Chart</h1>
   <canvas baseChart [type]="'pie'" [datasets]="pieChartDatasets" [labels]="pieChartLabels" [options]="pieChartOptions"
     [plugins]="pieChartPlugins" [legend]="pieChartLegend">
   </canvas>
