@@ -22,6 +22,7 @@
     "chart.js": "^3.9.1",
     "ng-zorro-antd": "^14.0.0",
     "ng2-charts": "^3.1.2",
+    "ngx-csv": "^0.3.2",
     "ngx-toastr": "^15.2.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
