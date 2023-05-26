@@ -1,18 +1,40 @@
-<app-modal *ngIf="isVisible$|async">
-  <div modal-header>
-    <h1>New Expense</h1>
-  </div>
-  <div modal-body>
-    <app-new-expense-form></app-new-expense-form>
-  </div>
-</app-modal>
-<div class="expenses-card-container" *ngIf="!(showCharts$|async)">
-  <app-expense-details *ngFor="let expense of expenses" [expenseDetails]="expense"></app-expense-details>
-</div>
-<div class="chart-container" *ngIf="showCharts$ | async">
-  <h1 nz-typography nzType="success">Expenses Pie Chart</h1>
-  <canvas baseChart [type]="'pie'" [datasets]="pieChartDatasets" [labels]="pieChartLabels" [options]="pieChartOptions"
-    [plugins]="pieChartPlugins" [legend]="pieChartLegend">
-  </canvas>
+<div class="expenses-container">
+  <div class="filters-container" *ngIf="!(showCharts$ |async)">
+    <nz-select [(ngModel)]="expenseType" (ngModelChange)="filterExpenses()" nzPlaceHolder="Filter by Type">
+      <nz-option *ngFor="let option of expenseTypeOtions" [nzValue]="option" [nzLabel]="option"></nz-option>
+    </nz-select>
 
+    <nz-range-picker [nzPlacement]=" 'bottomLeft'" [(ngModel)]="date"
+      (ngModelChange)="onChange($event)"></nz-range-picker>
+
+    <button nz-button nzType="primary" (click)="resetFilters()">Reset</button>
+
+  </div>
+  <app-modal *ngIf="isVisible$|async">
+    <div modal-header>
+      <h1>New Expense</h1>
+    </div>
+    <div modal-body>
+      <app-new-expense-form></app-new-expense-form>
+    </div>
+  </app-modal>
+  <div class="expenses-card-container" *ngIf="!(showCharts$|async)  && filteredExpenses.length > 0">
+    <app-expense-details *ngFor="let expense of filteredExpenses" [expenseDetails]="expense"></app-expense-details>
+  </div>
+
+  <nz-result [nzTitle]="'No Results '" *ngIf="filteredExpenses.length === 0">
+    <span nz-icon nzType="close" nzTheme="outline"></span>
+    <div nz-result-extra>
+    </div>
+  </nz-result>
+
+
+
+  <div class="chart-container" *ngIf="(showCharts$ | async) ">
+    <h1 nz-typography>Expenses Pie Chart</h1>
+    <canvas baseChart [type]="'pie'" [datasets]="pieChartDatasets" [labels]="pieChartLabels" [options]="pieChartOptions"
+      [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+    </canvas>
+
+  </div>
 </div>

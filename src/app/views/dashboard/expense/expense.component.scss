@@ -1,9 +1,35 @@
+
+
 .expenses-card-container{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 5px;
 }
 
+.filters-container{
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+  gap: 10px;
+  margin:20px;
+  nz-select, nz-range-picker{
+    width:300px;
+  }
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    nz-select, nz-range-picker{
+      width:100%;
+      max-width: 300px;
+    }
+    .ant-picker-input  {
+      float: left;
+
+    }
+  }
+
+
+
+}
 .chart-container{
   max-width: 100%;
   display: flex;
