@@ -43,7 +43,7 @@ export class NewExpenseFormComponent {
       amount: [null, Validators.required],
       date: ['', Validators.required],
       type: ['', Validators.required],
-      description: [''],
+      description: ['', Validators.maxLength(30)],
     });
   }
   async submitForm(): Promise<void> {

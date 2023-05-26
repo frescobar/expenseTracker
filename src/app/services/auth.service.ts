@@ -3,6 +3,7 @@ import {
   Auth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from '@angular/fire/auth';
 import { UserCredentials } from '../models/UserCredentials';
 import { LoadingService } from './loading.service';
@@ -18,7 +19,11 @@ export class AuthService {
     private loadingService: LoadingService,
     private router: Router,
     private toastr: ToastrService
-  ) {}
+  ) {
+    this.currentUser = localStorage.getItem('userId');
+  }
+
+  currentUser: string | null = null;
 
   login(userCredentials: UserCredentials) {
     this.loadingService.show();
@@ -27,7 +32,9 @@ export class AuthService {
       userCredentials.email,
       userCredentials.password
     )
-      .then(() => {
+      .then((userCredentials) => {
+        localStorage.setItem('userId', userCredentials.user?.uid);
+        this.currentUser = localStorage.getItem('userId');
         this.loadingService.hide();
         this.router.navigate(['/dashboard']);
       })
@@ -55,17 +62,14 @@ export class AuthService {
   }
 
   logout(): void {
-    this.afAuth
-      .signOut()
+    signOut(this.afAuth)
       .then(() => {
+        localStorage.removeItem('userId');
+        this.currentUser = null;
         this.router.navigate(['/login']);
       })
       .catch((error) => {
         console.log(error);
       });
-  }
-
-  get currentUser() {
-    return localStorage.getItem('userId');
   }
 }

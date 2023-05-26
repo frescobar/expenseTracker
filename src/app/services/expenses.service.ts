@@ -1,20 +1,17 @@
-import { Injectable, Query } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {
-  CollectionReference,
   Firestore,
   addDoc,
   collection,
   collectionData,
   deleteDoc,
   doc,
-  getDocs,
-  orderBy,
   query,
   where,
 } from '@angular/fire/firestore';
 import { Expense } from '../models/Expense';
-import { Auth } from '@angular/fire/auth';
-import { Observable, map, of } from 'rxjs';
+
+import { Observable, map, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
