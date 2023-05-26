@@ -12,6 +12,11 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NgChartsModule } from 'ng2-charts';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { FormsModule } from '@angular/forms';
+import { NzResultModule } from 'ng-zorro-antd/result';
+
 @NgModule({
   declarations: [DashboardComponent, ExpenseComponent],
   imports: [
@@ -26,6 +31,10 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
     NzDividerModule,
     NgChartsModule,
     NzTypographyModule,
+    NzSelectModule,
+    NzDatePickerModule,
+    FormsModule,
+    NzResultModule,
   ],
   exports: [DashboardComponent, ExpenseComponent],
 })

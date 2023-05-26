@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -14,6 +14,8 @@ export class SharedService {
   private showChartsSubject = new BehaviorSubject<boolean>(false);
   showCharts$ = this.showChartsSubject.asObservable();
 
+  buttonClickEmmiter = new EventEmitter();
+
   setIsToggle(value: boolean) {
     this.isToggleSubject.next(value);
   }
@@ -24,5 +26,9 @@ export class SharedService {
 
   setShowCharts(value: boolean) {
     this.showChartsSubject.next(value);
+  }
+
+  buttonClick() {
+    this.buttonClickEmmiter.emit();
   }
 }

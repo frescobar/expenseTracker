@@ -30,6 +30,8 @@
               (click)="showCharts()"><span nz-icon nzType="pie-chart" nzTheme="fill"></span></button>
             <button *ngIf="(showCharts$|async)" class="new-expense-btn" nzShape="round" nz-button nzType="primary"
               (click)="showDashboard()"><span nz-icon nzType="dashboard" nzTheme="fill"></span></button>
+            <button *ngIf="!(showCharts$|async)" class="new-expense-btn" nzShape="round" nz-button nzType="primary"
+              (click)="downloadCSV()"><span nz-icon nzType="download" nzTheme="outline"></span></button>
           </div>
           <router-outlet></router-outlet>
         </div>
