@@ -4,8 +4,8 @@
   margin: 20px;
   padding-left: 20px;
   width:auto;
-  overflow: hidden;
   background-color: #F0F2F5;
+  height:23rem;
 }
 .amount-container{
   display: flex;
@@ -29,14 +29,23 @@
 }
 
 .comment-container{
-  width:auto;
-  padding:5px 10px ;
-  overflow-x: auto;
-  margin-right: 10px;
+  padding:5px;
   text-align: center;
+  border-radius: 4px;
+  border:1px solid #efeff0;
+  background-color: #f3f3f5;
+  margin-right: 10px;
+  text-align: justify;
+  width: 200px; /* specify the desired width */
+  height: 100px; /* specify the desired height */
 }
 span{
   margin-top: 8px;
+}
+
+i{
+  font-size: 12px;
+  color: #8c8c8c;
 }
 .delete-icon{
   float: right;
