@@ -97,7 +97,7 @@ Once the application is installed and running, follow these steps to use the exp
 
    - Submit the form to create a new account.
 
-   - Or use this default user test@admin.com
+   - Or use this default user (email: test@admin.com password: 123456)
 
 2\. Log in to your account:
 
