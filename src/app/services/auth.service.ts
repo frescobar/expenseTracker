@@ -40,7 +40,14 @@ export class AuthService {
       })
       .catch((error) => {
         this.loadingService.hide();
-        console.log(error);
+        if (error.code === 'auth/user-not-found') {
+          this.toastr.error('User not found!');
+          return;
+        }
+        if (error.code === 'auth/wrong-password') {
+          this.toastr.error('Wrong password!');
+          return;
+        }
       });
   }
 
@@ -55,9 +62,12 @@ export class AuthService {
       this.loadingService.hide();
       this.toastr.success('You have successfully registered!');
       this.router.navigate(['/login']);
-    } catch (error) {
+    } catch (error: any) {
       this.loadingService.hide();
-      console.log(error);
+      if (error.code === 'auth/email-already-in-use') {
+        this.toastr.error('Email already in use!');
+        return;
+      }
     }
   }
 
