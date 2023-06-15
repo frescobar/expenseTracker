@@ -1,8 +1,5 @@
 
-
 # Expense Tracker Application
-
-I am proud of this application because it shows my Angular skills and challenged me to learn new approaches in order to get the same results
 
 This is an expense tracker application that allows users to manage their expenses. The application provides features such as user authentication, registration, chart visualization, downloading expenses as CSV, form validation, modular architecture with lazy loading, and unit tests.
 
